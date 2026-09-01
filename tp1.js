@@ -25,5 +25,9 @@ function setup() {
 
 function draw() {
   dibuj_piso(0,384, 16,8, 3);
-  dibuj_pilar(0,0, 13, 3,3);
+  dibuj_pilar(0,0, 13, 3);
+  pushMatrix();
+  scale(-1,1);
+  dibuj_pilar(0,0, 13, 3);
+  popMatrix();
 }
