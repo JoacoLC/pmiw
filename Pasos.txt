@@ -1,9 +1,0 @@
-0. Configurar Processing para p5.js
-1. Seleccionar imágenes (al menos 2 estados diferentes para el personaje).
-2. Preparar spritesheet
-3. Preparar workspace (resolución, cargar assets, etc).
-4. 2+ funciones propias con parámetros, para la animación.
-5. Máquina de estados para cambiar de animaciones.
-6. Modificación de la velocidad de animación.
-7. Reinicio de animación
-8. Fondo y parallax
