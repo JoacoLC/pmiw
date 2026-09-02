@@ -3,7 +3,7 @@ let ness_walk = [];
 let ness_sit;
 let ness_lie;
 
-let floor;
+let floortile;
 let halfplant;
 let halfwin;
 let pilar_top;
@@ -18,7 +18,7 @@ function preload() {
   ness_walk.push(loadImage("data/ness_walk1.png"));
 
   
-  floor        = loadImage("data/floorpattern.png");
+  floortile    = loadImage("data/floorpattern.png");
   pilar_top    = loadImage("data/pillar_top.png");
   pilar_bottom = loadImage("data/pillar_bottom.png");
   
@@ -33,17 +33,17 @@ function setup() {
 function draw() {
   background(75, 75, 150);
   
-  dibuj_piso(0,384, 16,8, ESCALA);
+  dibuj_piso(0,400, 16,8, ESCALA);
   dibuj_pilar(0,0, 13, ESCALA);
-  //push();
-  //scale(-1,1);
-  //dibuj_pilar(0,0, 13, ESCALA);
-  //pop();
+  push();
+  scale(-1,1);
+  dibuj_pilar(-765,0, 13, ESCALA);
+  pop();
   
-  frame_actual = get_frame(ness_walk, 6);
+  frame_actual = get_frame(ness_walk, 8);
   
   image (
-    ness_frame,
+    frame_actual,
     
     32,
     40,
