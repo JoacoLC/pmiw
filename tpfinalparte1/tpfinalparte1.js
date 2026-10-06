@@ -7,14 +7,15 @@ async function preload() {
 
 async function setup() {
   createCanvas(800, 450);
-  
-  background(0);
   textFont(font);
-  fill(255);
-  text("He'll yea!", width / 2, height / 2);
 }
 
 
 function draw() {
-
+  switch(pantalla) {
+    case 0:
+      background(0);
+      txt_gradual(width/8,height/8 * 6, 12, 255);
+  
+  }
 }
