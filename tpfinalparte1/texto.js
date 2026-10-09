@@ -1,23 +1,31 @@
-let txt_completo = "Hola! Cómo están?";
+let txt_completo;
+let txt_continuar;
+
 let txt_indice   = 0;
 let txt_timer    = 0;
 let txt_timermax = 1;
 let txt_pausado  = false;
 
-let cajatxt_origenx = width  / 16;
-let cajatxt_origeny = height / 4 * 3;
+let framenumber = 0;
+
+let cajatxt_origenx;
+let cajatxt_origeny;
 
 function txt_gradual(x, y, size, col) { // Hace aparecer caracteres de texto uno por uno.
-  textAlign(LEFT);
-  if(keyIsDown(ENTER)) txt_indice = txt_completo.length;
+  if(txt_indice < txt_completo.length && enter_pressed()) {
+    txt_indice = txt_completo.length;
+  }
   
   if (txt_timer < 0 && txt_indice < txt_completo.length) {  
     txt_timer = txt_timermax;
     txt_indice++;
-    txt_pausado = false; // En caso de que se haya hecho una pausa en el último
-                         // caracter, reanudar la velocidad usual.
+    
+    // Si se hizo una pausa en el último
+    // caracter, reanudar la velocidad actual.
+    txt_pausado = false;
   } else txt_timer--;
   
+  textAlign(LEFT);
   textSize(size);
   fill(col);
   text(txt_completo.slice(0, txt_indice), x, y);
@@ -27,7 +35,7 @@ function txt_gradual(x, y, size, col) { // Hace aparecer caracteres de texto uno
   if(txt_indice < txt_completo.length) {
     text("<Pulsa ENTER para saltear>", width / 2, 425);
   } else {
-    text("<Pulsa ENTER para continuar>", width / 2, 425);
+    if (framenumber % 4) text(txt_continuar, width / 2, 425);
   }
 }
 
