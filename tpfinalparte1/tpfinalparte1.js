@@ -1,21 +1,7 @@
-let pantalla = "Leyes";
-let init     = false;
 let font;
-let enter = false;
 
-function enter_pressed() {
-  let ret = enter;
-  if (enter) enter = false;
-  return ret;
-}
 
-function cambiar_pantalla(p) {
-  if (txt_indice === txt_completo.length && enter_pressed()) {
-    pantalla = p;
-    txt_indice = 0;
-    init = false;
-  }
-}
+
 
 async function preload() {
   font = await loadFont('data/PressStart2P-Regular.ttf');
@@ -30,8 +16,7 @@ async function setup() {
 
 
 function draw() {
-  if (framenumber < 60) framenumber++;
-  else framenumber = 0;
+  count_frame();
   switch(pantalla) {
   case "Leyes":
     if (!init) {
@@ -51,7 +36,7 @@ function draw() {
       "no entre en conflicto con la primera\n" +
       "o con la segunda ley.";
       
-      txt_continuar = "<Pulsa ENTER para continuar>";
+      txt_continuar = txt_pantallaestatica;
       init = true;
     } else {
       background(0);
@@ -93,7 +78,7 @@ function draw() {
       "Hay fuego en el techo. La puerta de entrada está abierta,\n" +
       "y se escuchan gritos ininteligibles desde dentro.\n" +
       "Notás también un hidrante de agua frente a la entrada.";
-      txt_continuar = "<Haz clic en algo para interactuar>";
+      txt_continuar = txt_pantallainteractuable;
       init = true;
     } else {
       background(0);

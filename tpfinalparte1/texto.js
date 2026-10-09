@@ -1,12 +1,12 @@
 let txt_completo;
 let txt_continuar;
+let txt_pantallaestatica      = "<Pulsa ENTER para continuar>";
+let txt_pantallainteractuable = "<Haz clic en algo para interactuar>";
 
 let txt_indice   = 0;
 let txt_timer    = 0;
 let txt_timermax = 1;
 let txt_pausado  = false;
-
-let framenumber = 0;
 
 let cajatxt_origenx;
 let cajatxt_origeny;
@@ -35,7 +35,7 @@ function txt_gradual(x, y, size, col) { // Hace aparecer caracteres de texto uno
   if(txt_indice < txt_completo.length) {
     text("<Pulsa ENTER para saltear>", width / 2, 425);
   } else {
-    if (framenumber % 4) text(txt_continuar, width / 2, 425);
+    if (framenumber % 15 <= 8) text(txt_continuar, width / 2, 425);
   }
 }
 
